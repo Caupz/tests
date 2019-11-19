@@ -4,17 +4,24 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 
 module.exports = {
-  mode: "none",
+  mode: "development",
   entry: './src/index.jsx',
+  devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'static/bundle.js'
   },
   plugins: [
     new CleanWebpackPlugin(),
     new CopyPlugin([
       {
-        from: "public"
+        from: 'public/index.html',
+      }
+    ]),
+    new CopyPlugin([
+      {
+        from: 'public/videos',
+        to: 'static/videos'
       }
     ])
   ],
@@ -31,6 +38,7 @@ module.exports = {
         loader: "eslint-loader",
         options: {
           failOnError: true,
+          fix: true,
         },
       },
       {
@@ -43,6 +51,9 @@ module.exports = {
         use: [
           {
             loader: 'file-loader',
+            options: {
+              outputPath: 'static/fonts'
+            }
           },
         ],
       },

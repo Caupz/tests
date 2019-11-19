@@ -1,0 +1,121 @@
+openapi: '3.0.0'
+info:
+  title: TLU
+  description: ""
+  version: "1.0.0"
+paths:
+  /api/v1/register:
+    post:
+      operationId: register
+      description: ""
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                age:
+                  type: string
+                username:
+                  type: string
+      responses:
+        200:
+          description: OK.
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Success, Peter!
+        400:
+          description: Bad request, invalid data
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Bad request!
+        401:
+          description: Bad request, invalid data
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Grow up, Mari!
+
+  /api/v1/orders:
+    get:
+      tags:
+        - orders
+      operationId: getOrders
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    _id:
+                      type: string
+                    fullName:
+                      type: string
+                    burger:
+                      type: string
+                    drink:
+                      type: string
+    post:
+      tags:
+        - orders
+      operationId: createOrder
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fullName:
+                  type: string
+                burger:
+                  type: string
+                drink:
+                  type: string
+      responses:
+        200:
+          description: OK
+
+  /api/v1/products/similar/{productId}:
+    get:
+      operationId: getSimilarProducts
+      description: ""
+      parameters:
+        - in: path
+          name: productId
+          schema:
+            type: string
+          required: true
+      responses:
+        200:
+          description: List of products.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    _id:
+                      type: string
+                    price:
+                      type: number
+                    title:
+                      type: string
+                    category:
+                      type: string
+                    created:
+                      type: string
+
+        500:
+          description: Something went wrong
