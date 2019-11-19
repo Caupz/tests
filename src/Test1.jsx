@@ -1,5 +1,16 @@
 import React from "react";
 import test1Example from "./images/test1_example.png";
+import PropTypes from "prop-types";
+
+function getTotalSum() {
+    let sum = 0;
+
+    for(let i = 0; i < ITEMS.length; i++) {
+        sum += ITEMS[i].price;
+    }
+    return sum;
+}
+
 
 // eslint-disable-next-line
 const ITEMS = [
@@ -31,11 +42,33 @@ const Test1 = () => {
         <img style={{width: 200}} src={test1Example}/>
       </div>
       <div>
-        [replace me]
+          {
+              ITEMS.map( item => {
+                  return <Item
+                      key={"product-"+item.name}
+                      price={item.price}
+                      name={item.name}
+                  />;
+              })
+          }
       </div>
-      <div><span className={"bold"}>Summa kokku:</span> [replace me]</div>
+        <div><span className={"bold"}>Summa kokku:</span> {getTotalSum()}</div>
     </div>
   );
+};
+
+const Item = (props) => {
+    return(
+        <div  className="product">
+            <span className="product-title">{props.name}</span> &nbsp;
+            <span className="product-cost">${props.price}</span>
+        </div>
+    );
+};
+
+Item.propTypes = {
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired
 };
 
 export default Test1;
