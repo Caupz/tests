@@ -11,6 +11,9 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'static/bundle.js'
   },
+  resolve: {
+    extensions: [ '.js', '.jsx', '.tsx', '.ts'],
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new CopyPlugin([
