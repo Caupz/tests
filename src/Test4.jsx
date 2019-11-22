@@ -19,6 +19,7 @@ class Test4 extends React.PureComponent{
       return res.json();
     })
     .then(product =>{
+      console.log("product", product);
       this.setState({
         similar: [],
         product,
@@ -38,6 +39,7 @@ class Test4 extends React.PureComponent{
       return res.json();
     })
     .then(similar =>{
+      console.log("similar prod", similar);
       this.setState({
         similar,
         error: null,

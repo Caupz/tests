@@ -15,7 +15,10 @@ router.get("/random", async (req, res)=>{
 });
 
 router.get("/similar/:productId", async (req, res)=>{
-  res.status(500).send("Implement")
+    console.log("similar", req, res, productId);
+    const xs = await Product.findById(productId);
+    //const xs = await Product.find({brand: "Samsung"});
+    res.status(200).send(xs);
 });
 
 module.exports = router;
