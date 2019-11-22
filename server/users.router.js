@@ -9,6 +9,16 @@ router.get("/", async (req, res)=>{
 });
 
 /** Add something here*/
+router.post("/post-entry/", async (req, res)=>{
+
+    const user = new User({fullName: req.body.name, address: req.body.location, phoneNumber: req.body.phone});
+    user.save(err => {
+        if(err) return reject(err);
+        console.log("success save");
+    });
+
+    res.send("asdasdasd : "+JSON.stringify(user));
+});
 
 module.exports = router;
 
