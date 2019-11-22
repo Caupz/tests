@@ -31,11 +31,12 @@ class Test4 extends React.PureComponent{
         error: "Not implemented!"
       });
     });
-  }
+  };
 
   handleClick = (_id) => {
     fetch(`/api/v1/products/similar/${_id}`)
     .then( res =>{
+      console.log("handleClick res", res);
       return res.json();
     })
     .then(similar =>{

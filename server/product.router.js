@@ -15,10 +15,24 @@ router.get("/random", async (req, res)=>{
 });
 
 router.get("/similar/:productId", async (req, res)=>{
-    console.log("similar", req, res, productId);
-    const xs = await Product.findById(productId);
-    //const xs = await Product.find({brand: "Samsung"});
-    res.status(200).send(xs);
+    console.log("similar", req.params.productId);
+    const xs = await Product.findById(req.params.productId);
+
+    if(xs !== null) {
+
+        console.log("xs", JSON.stringify(xs));
+        let title = xs.title;
+        title = title.split(" ")[0];
+
+        console.log("title", title);
+        const prods = await Product.find({title: {$regex: title, $options: 1}});
+        console.log("prods", JSON.stringify(prods));
+
+        return res.status(200).send(prods);
+    }
+
+    console.log("product not found with ID: "+req.params.productId);
+    res.status(200).send([]);
 });
 
 module.exports = router;
