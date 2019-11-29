@@ -1,5 +1,5 @@
 import React from "react";
-import test1Example from "./images/test1_example.png";
+//import test1Example from "./images/test1_example.png";
 import PropTypes from "prop-types";
 
 function getTotalSum() {
@@ -39,7 +39,6 @@ const Test1 = () => {
           Iga toode peab olema uuel real.
         </p>
         <div>Näiteks:</div>
-        <img style={{width: 200}} src={test1Example}/>
       </div>
       <div>
           {

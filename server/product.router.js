@@ -28,7 +28,8 @@ router.get("/similar/:productId", async (req, res)=>{
         const prods = await Product.find({title: {$regex: title, $options: 1}});
         console.log("prods", JSON.stringify(prods));
 
-        return res.status(200).send(prods);
+        res.status(200).send(prods);
+        return;
     }
 
     console.log("product not found with ID: "+req.params.productId);

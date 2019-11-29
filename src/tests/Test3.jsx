@@ -1,7 +1,7 @@
 import React from "react";
-import example1 from "./images/1.png";
+/*import example1 from "./images/1.png";
 import example2 from "./images/2.png";
-import example3 from "./images/3.png";
+import example3 from "./images/3.png";*/
 import PropTypes from "prop-types";
 
 class Test3 extends React.PureComponent{
@@ -68,9 +68,6 @@ class Test3 extends React.PureComponent{
             Näited:
           </h3>
           <div className="images">
-            <img src={example1}/>
-            <img src={example2}/>
-            <img src={example3}/>
           </div>
         </div>
         <h3>
