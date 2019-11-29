@@ -49,7 +49,7 @@ body{
 }
 
 .layout.open .drawer {
-  width: 200px;
+  width: 250px;
   display: block;
   flex-shrink:0;
 }
@@ -260,4 +260,22 @@ table th {
 ol li {
   margin-top: 10px;
   font-size: 18px;
+}
+
+
+.onlineStatus {
+  display: inline-block;
+  border-radius: 5px;
+  border: 1px solid #6e6e6e;
+  padding: 25px;
+  font-size: 30px;
+}
+.onlineStatus:not(.animate) span {
+  color: black;
+  transition: all .2s ease-in-out;
+  font-weight: bold;
+}
+.onlineStatus.animate span {
+  color: green;
+  font-weight: bold;
 }

@@ -10,7 +10,7 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 const productsRouter = require("./product.router.js");
 const ordersRouter = require("./orders.router.js");
-const usersRouter = require("./users.router.js");
+const usersRouter = require("./user.router.js");
 
 app.get('/', (req, res) => res.send('Hello World!'));
 

@@ -23,6 +23,12 @@ module.exports = {
     ]),
     new CopyPlugin([
       {
+        from: 'public/images',
+        to: 'static/images'
+      }
+    ]),
+    new CopyPlugin([
+      {
         from: 'public/videos',
         to: 'static/videos'
       }

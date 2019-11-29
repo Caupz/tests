@@ -1,22 +1,26 @@
 import React from "react";
 import {BrowserRouter, Switch, Route, Link} from "react-router-dom";
-import Test1 from "./Test1";
-import Test2 from "./Test2";
-import Test3 from "./Test3";
-import Test4 from "./Test4";
-import Test5 from "./Test5";
-import Test6 from "./Test6";
-import Test7 from "./Test7";
-import Test8 from "./Test8";
+import Test1 from "./tests/Test1";
+import Test2 from "./tests/Test2";
+import Test3 from "./tests/Test3";
+import Test4 from "./tests/Test4";
+import Test5 from "./tests/Test5";
+import Test6 from "./tests/Test6";
+import Test7 from "./tests/Test7";
+import Test8 from "./tests/Test8";
+import Test9 from "./tests/Test9";
+import Test10 from "./tests/Test10";
+import Test11 from "./tests/Test11";
 import notFoundImage from "./images/404_Error.jpg";
 import {Layout} from "./Layout";
 
 const Home = () => (
   <div>
-    Tere!
+    Tere päevast!
     <p>
-      Menüüst leiad harjutusülesanded arvestuseks.
+      Rakenduste Programmeerimise soojendusülesanded leiad menüüst
     </p>
+    <img width={300} src={'/static/images/brain.jpg'}/>
   </div>
 );
 
@@ -47,6 +51,15 @@ const PATHS = [
   },
   {
     path: '/test/8', component: Test8, text: 'Ülesanne 8 - IT student'
+  },
+  {
+    path: '/test/9', component: Test9, text: 'Ülesanne 9 - Elon Musk'
+  },
+  {
+    path: '/test/10', component: Test10, text: 'Ülesanne 10 - Cybertruck'
+  },
+  {
+    path: '/test/11', component: Test11, text: 'Ülesanne 11 - Jeff Bezos'
   },
 ];
 
