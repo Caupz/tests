@@ -1,10 +1,40 @@
 import React from "react";
 import OnlineCount from "../OnlineCount";
+import PropTypes from "prop-types";
 
 class Test11 extends React.PureComponent {
+    static propTypes = {
+        interval: PropTypes.func,
+    };
+
+  constructor(props) {
+    super(props);
+    this.interval = null;
+  }
   state = {
     onlineCount: 20,
   };
+
+  componentDidMount() {
+    this.interval = setInterval(this.fetchOnlinePlayers, 3000);
+  }
+
+  fetchOnlinePlayers = () => {
+    console.log("fetchOnlinePlayers", this);
+      fetch("/api/v1/users/onlineCount")
+      .then(res => res.text())
+      .then(res => {
+          console.log("succ", res, this);
+          this.setState({onlineCount: res});
+      })
+      .catch(err => {
+          console.log("onlinecount error", err);
+      });
+  };
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
 
   render() {
     return (

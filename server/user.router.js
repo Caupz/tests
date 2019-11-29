@@ -4,9 +4,20 @@ const {User} = require("./user.model.js");
 const mongoose = require("mongoose");
 const multer = require('multer');
 
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 router.get("/", async (req, res)=>{
-  const xs = await User.find({});
-  res.send(xs);
+    const xs = await User.find({});
+    res.send(xs);
+});
+router.get("/onlineCount/", async (req, res)=>{
+    const r = getRandomInt(0, 20);
+    res.status(200).send(r+"");
 });
 
 /** Add something here*/
