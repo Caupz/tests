@@ -52,11 +52,11 @@ class Test9 extends React.PureComponent {
       <div>
         <Task />
           <form onSubmit={this.handleSubmit}>
-              <p><input readOnly={this.state.disabled} name={"name"} onChange={this.handleChange} placeholder={"Name"} /></p>
-              <p><input readOnly={this.state.disabled} name={"location"} onChange={this.handleChange} placeholder={"Location"} /></p>
-              <p><input readOnly={this.state.disabled} name={"phone"} onChange={this.handleChange} placeholder={"phone"} /></p>
-              <p><input readOnly={this.state.disabled} name={"idcode"} onChange={this.handleChange} placeholder={"idcode"} /></p>
-              <p><input readOnly={this.state.disabled} type={"submit"} value={"Esitan"} /></p>
+              <p><input name={"name"} onChange={this.handleChange} placeholder={"Name"} /></p>
+              <p><input name={"location"} onChange={this.handleChange} placeholder={"Location"} /></p>
+              <p><input name={"phone"} onChange={this.handleChange} placeholder={"phone"} /></p>
+              <p><input name={"idcode"} onChange={this.handleChange} placeholder={"idcode"} /></p>
+              <p><input type={"submit"} value={"Esitan"} /></p>
           </form>
       </div>
     );
